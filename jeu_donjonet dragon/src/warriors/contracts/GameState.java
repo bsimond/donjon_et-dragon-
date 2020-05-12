@@ -1,15 +1,19 @@
 package warriors.contracts;
 
+import warriors.engine.Game;
+
 /**
  * This interface describes the game state which should be return after each game turn
  */
 public interface GameState {
+	
+	
 
 	/**
 	 * @return the player name
 	 */
 	String getPlayerName();
-	
+		
 	/**
 	 * @return the game unique ID
 	 */
@@ -33,10 +37,14 @@ public interface GameState {
 	/**
 	 * @return the last log of the game. This log is displayed by the client after each game turn
 	 */
-	String getLastLog();
+	String getLastLog(int dices);
 	
 	/**
 	 * @return the current case
 	 */
-	int getCurrentCase(); 
+	int getCurrentCase();
+
+	
+
+
 }

@@ -58,7 +58,7 @@ public class ClientConsole {
 		GameState gameState = warriors.createGame(playerName, chosenHeroe, choosenMap);
 		String gameId = gameState.getGameId();
 		while (gameState.getGameStatus() == GameStatus.IN_PROGRESS) {
-			System.out.println(gameState.getLastLog());
+			System.out.println(gameState.getLastLog(0));
 			System.out.println("\nAppuyer sur une touche pour lancer le dée"); 
 			if(sc.hasNext()) {
 				sc.nextLine();
@@ -66,7 +66,7 @@ public class ClientConsole {
 			}									
 		}
 		
-		System.out.println(gameState.getLastLog());
+		System.out.println(gameState.getLastLog(0));
 	}
 
 	private static String displayMenu(Scanner sc) {

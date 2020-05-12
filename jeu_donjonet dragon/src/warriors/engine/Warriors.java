@@ -1,6 +1,7 @@
 package warriors.engine;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -14,13 +15,14 @@ public class Warriors implements WarriorsAPI {
 	ArrayList <Hero>listhero = new ArrayList<Hero>();
 	ArrayList <NewMap>newmap = new ArrayList<NewMap>();
 	
-	
+	HashMap<String, Game> listgame = new HashMap<String, Game>();
 	public Warriors() {
-		
+	
 	listhero.add(new Warrior());
 	listhero.add(new Wizard());
 	
 	newmap.add(new NewMap());
+	
 	
 	}
 
@@ -40,15 +42,30 @@ public class Warriors implements WarriorsAPI {
 	}
 
 	@Override
-	public GameState createGame(String playerName, Hero hero, Map map) {
-		// TODO Auto-generated method stub
-		return null;
+	public GameState createGame(String playerName, Hero hero, Map map) {		
+		Game game=new Game(playerName,hero,map);		
+		listgame.put(game.getGameId(),game);			
+		return game;
 	}
 
 	@Override
-	public GameState nextTurn(String gameID) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public GameState nextTurn(String gameID) {		
+		
+		int dices= (int)(Math.random() *6)+1;		
+		Game currentgame =listgame.get(gameID);
+		Game.setCurrentCase(dices);
+		
+			
+
+		
+			
+		
+		
+		return currentgame;
+		
+				
+		}
+		
+		
 
 }
